@@ -1,13 +1,12 @@
 package com.gc.materialdesign.views;
 
+import com.nineoldandroids.view.ViewPropertyAnimator;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
-
-import com.gc.materialdesign.views.ButtonFloat;
-import com.nineoldandroids.view.ViewPropertyAnimator;
 
 /**
  * Created by hamedpc on 4/25/2015.
@@ -35,13 +34,13 @@ public class AutoHideButtonFloat extends ButtonFloat implements AbsListView.OnSc
 
     @Override
     public void onScrollStateChanged(AbsListView absListView, int scrollState) {
-        switch (scrollState) {
-            case AbsListView.SCROLL_AXIS_NONE:
-                floatHiding = false;
-                floatShowing = false;
-                ViewPropertyAnimator.animate(view).translationY(0).setDuration(300);
-                break;
-        }
+//        switch (scrollState) {
+//            case AbsListView.SCROLL_AXIS_NONE:
+//                floatHiding = false;
+//                floatShowing = false;
+//                ViewPropertyAnimator.animate(view).translationY(0).setDuration(300);
+//                break;
+//        }
         if (onScrollListener != null)
             onScrollListener.onScrollStateChanged(absListView, scrollState);
     }
