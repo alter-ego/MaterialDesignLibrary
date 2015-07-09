@@ -90,7 +90,6 @@ public class ButtonFlat extends Button {
 		    paint.setAntiAlias(true);
 		    paint.setColor(makeFocusColor());
 		    canvas.drawRect(getLeft(), getTop(), getRight(), getBottom(), paint);
-		    invalidate();
 		}
 		
 	}
@@ -108,6 +107,7 @@ public class ButtonFlat extends Button {
 
     	public void setFocused(boolean focused) {
 		this.focused = focused;
+	    invalidate();
     	}
 	
 	public void setText(String text){
