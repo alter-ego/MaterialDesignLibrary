@@ -16,7 +16,9 @@ public class ButtonFlat extends Button {
 	
 	TextView textButton;
 
-	public ButtonFlat(Context context, AttributeSet attrs) {
+    	private boolean focused = false;
+
+    public ButtonFlat(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
 	}
@@ -83,7 +85,13 @@ public class ButtonFlat extends Button {
 					onClickListener.onClick(this);
 			}
 			invalidate();
-		}		
+		} else if (focused) {
+		    Paint paint = new Paint();
+		    paint.setAntiAlias(true);
+		    paint.setColor(makeFocusColor());
+		    canvas.drawRect(getLeft(), getTop(), getRight(), getBottom(), paint);
+		    invalidate();
+		}
 		
 	}
 	
@@ -95,6 +103,12 @@ public class ButtonFlat extends Button {
 	protected int makePressColor(){
 		return Color.parseColor("#88DDDDDD");	
 	}
+
+    	protected int makeFocusColor() { return Color.parseColor("#33999999"); }
+
+    	public void setFocused(boolean focused) {
+		this.focused = focused;
+    	}
 	
 	public void setText(String text){
 		textButton.setText(text.toUpperCase());
